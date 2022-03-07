@@ -731,19 +731,93 @@
 
 
 
-board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+# board = [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+
+# def drawboard():
+#     print(f"{board[1]} | {board[2]} | {board[3]}")
+#     print(f"{board[4]} | {board[5]} | {board[6]}")
+#     print(f"{board[7]} | {board[8]} | {board[9]}")
+
+
+# def checkposition(i):
+#     if(board[i]==' '):
+#         return True
+#     else:
+#         return False
+
+# def checkwin(marker):
+#     if (board[1] == board[2] == board[3] == marker):
+#         return True
+#     elif(board[4] == board[5] == board[6] == marker):
+#         return True
+#     elif(board[7] == board[8] == board[9] == marker):
+#         return True
+#     elif (board[1] == board[4] == board[7] == marker):
+#         return True
+#     elif (board[2] == board[5] == board[8] == marker):
+#         return True
+#     elif (board[3] == board[6] == board[9] == marker):
+#         return True
+#     elif (board[1] == board[5] == board[9] == marker):
+#         return True
+#     elif (board[3] == board[5] == board[7] == marker):
+#         return True
+#     else:
+#         return False
+
+# turn  =9
+# chance=  0
+# player = 1
+# mark = 'X'
+
+# print("Welcome to the TIC TAC TOE game\n")
+# print("Player 1 has the first chance with the marker X\n")
+# print("Player 2 has the marker O\n")
+
+# while (chance<turn):
+#     drawboard()
+
+#     if (player%2!=0):
+#         print("PLayer 1's turn \n")
+#         mark = 'X'
+
+#     else:
+#         print("Player 2's turn\n")
+#         mark = 'O'
+
+#     choice = int(input("enter the position where you want to place the marker\n"))
+#     if (checkposition(choice)):
+#         board[choice]=mark
+#         turn-=1
+#         player+=1
+
+#     if checkwin('X'):
+#         print("Player 1 wins the game\n")
+#         drawboard()
+#         break
+#     elif checkwin('O'):
+#         print("Player 2 wins the game\n")
+#         drawboard
+#         break
+#     elif turn==0:
+#         print("You ran out of chances\n")
+#         break
+
+
+
+
+
+
+
+from matplotlib.pyplot import draw
+
+
+board=[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
 
 def drawboard():
     print(f"{board[1]} | {board[2]} | {board[3]}")
     print(f"{board[4]} | {board[5]} | {board[6]}")
     print(f"{board[7]} | {board[8]} | {board[9]}")
-
-
-def checkposition(i):
-    if(board[i]==' '):
-        return True
-    else:
-        return False
 
 def checkwin(marker):
     if (board[1] == board[2] == board[3] == marker):
@@ -765,47 +839,57 @@ def checkwin(marker):
     else:
         return False
 
-turn  =9
-chance=  0
+
+
+def checkpos(i):
+    if board[i]==' ':
+        return True
+    else:
+        return False
+
+
+print("Welcome to TIC TAC TOE game\n")
+print("Player 1 has first turn with marker X\n")
+print("Player 2 has the later turn with the marker O\n")
+
+
 player = 1
+turn = 9
+chance = 0
 mark = 'X'
 
-print("Welcome to the TIC TAC TOE game\n")
-print("Player 1 has the first chance with the marker X\n")
-print("Player 2 has the marker O\n")
-
-while (chance<turn):
+while chance<turn:
     drawboard()
 
     if (player%2!=0):
-        print("PLayer 1's turn \n")
+        print("Player 1's turn \n")
         mark = 'X'
 
     else:
-        print("Player 2's turn\n")
+        print("Player 2's turn \n")
         mark = 'O'
 
-    choice = int(input("enter the position where you want to place the marker\n"))
-    if (checkposition(choice)):
-        board[choice]=mark
+    choice = int(input("Enter the position where you want to place the marker\n"))
+
+    if (checkpos(choice)):
+        board[choice] = mark
         turn-=1
         player+=1
-
-    if checkwin('X'):
-        print("Player 1 wins the game\n")
+    
+    if(checkwin('X')):
+        print("Player 1 has won the game\n")
+        print("winning condition\n")
         drawboard()
         break
-    elif checkwin('O'):
-        print("Player 2 wins the game\n")
-        drawboard
+    elif(checkwin('O')):
+        print("Player 2 has won the game\n")
+        print("Winning condition\n")
+        drawboard()
         break
-    elif turn==0:
+
+    if turn==0:
         print("You ran out of chances\n")
         break
-
-
-
-
 
 
 
