@@ -809,89 +809,87 @@
 
 
 
-from matplotlib.pyplot import draw
+# from matplotlib.pyplot import draw
 
 
-board=[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+# board=[' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
 
-def drawboard():
-    print(f"{board[1]} | {board[2]} | {board[3]}")
-    print(f"{board[4]} | {board[5]} | {board[6]}")
-    print(f"{board[7]} | {board[8]} | {board[9]}")
+# def drawboard():
+#     print(f"{board[1]} | {board[2]} | {board[3]}")
+#     print(f"{board[4]} | {board[5]} | {board[6]}")
+#     print(f"{board[7]} | {board[8]} | {board[9]}")
 
-def checkwin(marker):
-    if (board[1] == board[2] == board[3] == marker):
-        return True
-    elif(board[4] == board[5] == board[6] == marker):
-        return True
-    elif(board[7] == board[8] == board[9] == marker):
-        return True
-    elif (board[1] == board[4] == board[7] == marker):
-        return True
-    elif (board[2] == board[5] == board[8] == marker):
-        return True
-    elif (board[3] == board[6] == board[9] == marker):
-        return True
-    elif (board[1] == board[5] == board[9] == marker):
-        return True
-    elif (board[3] == board[5] == board[7] == marker):
-        return True
-    else:
-        return False
-
-
-
-def checkpos(i):
-    if board[i]==' ':
-        return True
-    else:
-        return False
+# def checkwin(marker):
+#     if (board[1] == board[2] == board[3] == marker):
+#         return True
+#     elif(board[4] == board[5] == board[6] == marker):
+#         return True
+#     elif(board[7] == board[8] == board[9] == marker):
+#         return True
+#     elif (board[1] == board[4] == board[7] == marker):
+#         return True
+#     elif (board[2] == board[5] == board[8] == marker):
+#         return True
+#     elif (board[3] == board[6] == board[9] == marker):
+#         return True
+#     elif (board[1] == board[5] == board[9] == marker):
+#         return True
+#     elif (board[3] == board[5] == board[7] == marker):
+#         return True
+#     else:
+#         return False
 
 
-print("Welcome to TIC TAC TOE game\n")
-print("Player 1 has first turn with marker X\n")
-print("Player 2 has the later turn with the marker O\n")
+
+# def checkpos(i):
+#     if board[i]==' ':
+#         return True
+#     else:
+#         return False
 
 
-player = 1
-turn = 9
-chance = 0
-mark = 'X'
+# print("Welcome to TIC TAC TOE game\n")
+# print("Player 1 has first turn with marker X\n")
+# print("Player 2 has the later turn with the marker O\n")
 
-while chance<turn:
-    drawboard()
 
-    if (player%2!=0):
-        print("Player 1's turn \n")
-        mark = 'X'
+# player = 1
+# turn = 9
+# chance = 0
+# mark = 'X'
 
-    else:
-        print("Player 2's turn \n")
-        mark = 'O'
+# while chance<turn:
+#     drawboard()
 
-    choice = int(input("Enter the position where you want to place the marker\n"))
+#     if (player%2!=0):
+#         print("Player 1's turn \n")
+#         mark = 'X'
 
-    if (checkpos(choice)):
-        board[choice] = mark
-        turn-=1
-        player+=1
+#     else:
+#         print("Player 2's turn \n")
+#         mark = 'O'
+
+#     choice = int(input("Enter the position where you want to place the marker\n"))
+
+#     if (checkpos(choice)):
+#         board[choice] = mark
+#         turn-=1
+#         player+=1
     
-    if(checkwin('X')):
-        print("Player 1 has won the game\n")
-        print("winning condition\n")
-        drawboard()
-        break
-    elif(checkwin('O')):
-        print("Player 2 has won the game\n")
-        print("Winning condition\n")
-        drawboard()
-        break
+#     if(checkwin('X')):
+#         print("Player 1 has won the game\n")
+#         print("winning condition\n")
+#         drawboard()
+#         break
+#     elif(checkwin('O')):
+#         print("Player 2 has won the game\n")
+#         print("Winning condition\n")
+#         drawboard()
+#         break
 
-    if turn==0:
-        print("You ran out of chances\n")
-        break
-
-
+#     if turn==0:
+#         print("You ran out of chances\n")
+#         break
 
 
 
@@ -899,6 +897,117 @@ while chance<turn:
 
 
 
+
+
+# graph = {
+#     1:[2,3,4],
+#     2:[5,6],
+#     3:[7],
+#     4:[],
+#     5:[],
+#     6:[],
+#     7:[],
+#     8:[],
+#     9:[10],
+#     10:[]
+
+# }
+
+# ser = int(input("Enter the node to be saerched\n"))
+# lim = int(input("Enter the search limit\n"))
+# visited=[]
+
+# def dls(src,ser,lim):
+#     if src not in visited:
+#         visited.append(src)
+    
+#     if src==ser:
+#         return True
+
+#     if lim<=0:
+#         return False
+
+    
+#     for i in graph[src]:
+#         if (dls(i,ser,lim-1)):
+#             return True
+    
+#     return False
+
+
+# if(dls(1,ser,lim)):
+#     print("Found theelement\n")
+
+# else:
+#     print("element was not found\n")
+
+# for i in visited:
+#     print(f"{i}-->",end=" ")
+
+
+
+
+
+
+
+
+
+graph={
+    'arad':{'zerind':75,'sibiu':140,'timisoara':118},
+    'zerind':{'arad':75,'oradea':71},
+    'oradea':{'zerind':71,'sibiu':151},
+    'timisoara':{'arad':118,'lugoj':111},
+    'sibiu':{'arad':140,'oradea':151,'fagaras':99,'rimnicu vilcea':80},
+    'lugoj':{'timisoara':111,'mehadia':70},
+    'fagaras':{'sibiu':99,'bucharest':211},
+    'rimnicu vilcea':{'sibiu':80,'pitesti':97,'craiova':146},
+    'mehadia':{'lugoj':70,'dobreta':75},
+    'dobreta':{'mehadia':75,'craiova':120},
+    'bucharest':{'fagaras':211,'pitesti':101,'urziceni':85,'giurglu':90},
+    'giurglu':{'bucharest':90},
+    'pitesti':{'bucharest':101,'craiova':138,'rimnicu vilcea':97},
+    'craiova':{'dobreta':120,'rimnicu vilcea':146,'pitesti':138},
+    'urziceni':{'hirsova':98,'vaslui':142,'bucharest':85},
+    'hirsova':{'urziceni':98,'eforie':86},
+    'vaslui':{'urziceni':142,'lasi':92},
+    'lasi':{'vaslui':92,'neamt':87},
+    'eforie':{'hirsova':86},
+    'neamt':{'lasi':87}
+}
+
+frontier = []
+flag = 0
+
+def ucs(goal):
+    global frontier
+    global flag
+
+    if frontier:
+        node_p = sorted(frontier)[0]
+        frontier.remove(node_p)
+
+        node = node_p[1]
+        cost = node_p[0]
+
+        for a in graph[node]:
+            frontier.append((cost+graph[node][a],a))
+
+            if a==goal:
+                print("found the element\n")
+                print(f"cost: {cost+graph[node][a]}")
+                flag = 1
+
+        if (flag!=1):
+            ucs(goal)
+
+
+
+ser = input("enter the city to be searched\n")
+src = input("enter the starting city\n")
+
+frontier.append((0,src))
+
+ucs(ser)
 
 
 
